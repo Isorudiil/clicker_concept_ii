@@ -1,0 +1,33 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.assets-container {
+    position: absolute;
+}
+
+.assets-container:before {
+    content: "x";
+}
+
+.assets-container:hover {
+    cursor: pointer;
+}
+
+.assets-list {
+    position: relative;
+    flex-direction: column;
+    user-select: none;
+}
+
+.hide {
+    display: none;
+}
+
+.currency-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
