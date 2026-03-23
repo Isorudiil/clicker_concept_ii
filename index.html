@@ -6,25 +6,39 @@
         <link rel="stylesheet" href="./styles/style.css">
     </head>
     <body>
-        <div class="assets-container">
+        <div class="assets-container normal-button">
+            Inventory
             <div id="assets" class="assets-list hide"></div>
         </div>
-        <div id="currency-container" class="currency-container">
-            <button id="add-copper" data-currency="copper">
-                Add copper <span id="copper-span"></span>
-            </button>
-            <button id="add-silver" data-currency="silver">
-                Add silver <span id="silver-span"></span>
-            </button>
-            <button id="add-gold" data-currency="gold">
-                Add gold <span id="gold-span"></span>
-            </button>
-            <button id="add-platinum" data-currency="platinum">
-                Add platinum <span id="platinum-span"></span>
-            </button>
-            <button id="add-diamond" data-currency="diamond">
-                Add diamond <span id="diamond-span"></span>
-            </button>
+
+        <div class="main-view-container">
+            <div id="resource-container" class="resource-container">
+                <button
+                        id="add-trees"
+                        data-resource="trees"
+                        class="normal-button resource-button"
+                >
+                    Cut tree <span id="trees-span"></span>
+                </button>
+            </div>
+
+            <div id="shop-container" class="shop-container">
+                <button id="shop-button" class="normal-button shop-button">
+                    Go to shop
+                </button>
+                <div id="shop-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            CCII Shop
+                        </div>
+                        <div class="modal-sub-header">
+                            Buy and sell here
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-close normal-button">Close</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script type="module" src="scripts/controller.js"></script>

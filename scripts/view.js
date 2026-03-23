@@ -8,9 +8,18 @@ export function showAssets(assets) {
         node.removeChild(node.lastChild);
     }
     Object.entries(assets).forEach(([asset, value]) => {
-        let newDiv = document.createElement("div");
-        newDiv.textContent = `${asset}: ${value["amount"]}`;
-        node
-            .appendChild(newDiv);
+        if (value["active"]) {
+            let newDiv = document.createElement("div");
+            newDiv.textContent = `${_capitalizeFirstLetter(asset)}: ${value["amount"]}`;
+            node
+              .appendChild(newDiv);
+        }
     });
+}
+
+function _capitalizeFirstLetter(string) {
+    if (string.length === 0) {
+        return string;
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

@@ -1,11 +1,16 @@
 import { getElement, showAssets } from "./view.js";
-import { currencies, addValueToAsset } from "./model.js";
+import { resources,
+  resourceBuildings,
+  resourceGenerators,
+  adjustAssetAmount,
+  saveAssets,
+} from "./model.js";
 
-getElement("#currency-container")
+getElement("#resource-container")
     .addEventListener("click", (e) => {
-        const currentCurrency = e.target.dataset.currency;
-        addValueToAsset(currencies, currentCurrency, 1);
-        showAssets(currencies);
+        const currentCurrency = e.target.dataset.resource;
+        adjustAssetAmount(resources, currentCurrency, 1);
+        showAssets(resources);
     });
 
 getElement(".assets-container")
@@ -14,4 +19,18 @@ getElement(".assets-container")
             .classList.toggle("hide");
     });
 
-showAssets(currencies);
+showAssets(resources);
+saveAssets({resources, resourceBuildings, resourceGenerators});
+
+getElement("#shop-button")
+    .addEventListener("click", (e) => {
+      getElement("#shop-modal")
+        .classList.toggle("show");
+    })
+
+getElement(".modal-close")
+    .addEventListener("click", (e) => {
+      getElement("#shop-modal")
+        .classList.toggle("show");
+    })
+

@@ -1,14 +1,14 @@
-export let currencies = {
-    copper: {
+export let resources = {
+    trees: {
         amount: 0, active: true,
     },
-    silver: {
+    rocks: {
         amount: 0, active: false,
     },
-    gold: {
+    coal: {
         amount: 0, active: false,
     },
-    platinum: {
+    copper: {
         amount: 0, active: false,
     },
     diamond: {
@@ -16,8 +16,37 @@ export let currencies = {
     }
 };
 
-export function addValueToAsset(assets, asset,  val) {
+export let resourceBuildings = {
+    workbench: {
+        amount: 0, active: false,
+    },
+    lumberyard: {
+        amount: 0, active: false,
+    },
+    quarry: {
+        amount: 0, active: false,
+    },
+};
+
+export let resourceGenerators = {
+    lumberjack: {
+        amount: 0, active: false,
+    },
+    miner: {
+        amount: 0, active: false,
+    },
+};
+
+export function adjustAssetAmount(assets, asset, val) {
     if (asset in assets) {
-        assets[asset].amount += val;
+        if (val > 0) {
+            assets[asset].amount += val;
+        } else {
+            assets[asset].amount -= val;
+        }
     }
+}
+
+export function saveAssets(assets) {
+    localStorage.setItem("assets", JSON.stringify(assets));
 }
